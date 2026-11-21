@@ -157,7 +157,9 @@ docker compose up -d --build
 
 - The container binds to `127.0.0.1:3100` (host networking, so it can reach a
   Redis instance bound to localhost). Put TLS in front with nginx/Caddy —
-  `deploy/nginx.conf` is the config this deployment uses.
+  `deploy/nginx.conf` is the config this deployment uses, and
+  [`deploy/README.md`](deploy/README.md) documents the server layout. This
+  instance sits behind Cloudflare in **Full** mode with an origin certificate.
 - `NEXT_PUBLIC_SITE_URL` is **build-time** (Next inlines `NEXT_PUBLIC_*`); rebuild
   the image when the domain changes.
 - `GITHUB_TOKEN` needs only public read access. Without it the app still runs on
