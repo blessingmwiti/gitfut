@@ -4,7 +4,11 @@
 
 Please **do not** open a public issue for security problems.
 
-Report it privately through GitHub's **[private vulnerability reporting](https://github.com/Younesfdj/gitfut/security/advisories/new)** (repo → **Security** → **Report a vulnerability**). If that isn't available, email **ferradjiyounes69@gmail.com**.
+This repository is a self-hosted fork of GitFut. Report problems in **this
+deployment** privately through GitHub's **[private vulnerability reporting](https://github.com/blessingmwiti/gitfut/security/advisories/new)**
+(repo → **Security** → **Report a vulnerability**). If that isn't available,
+open a minimal issue asking for a private contact channel — do not include
+exploit details in it.
 
 Please include:
 
@@ -12,14 +16,22 @@ Please include:
 - steps to reproduce, ideally a small proof of concept,
 - the impact you believe it has.
 
-You'll get an acknowledgement within **72 hours**, and I'll work to ship a fix as quickly as I can and keep you updated. Please give a reasonable window to patch before any public disclosure — I'm happy to credit you for the report.
+You'll get an acknowledgement within **72 hours** and updates as fixes land.
+Please give a reasonable window to patch before any public disclosure.
+
+## Upstream vulnerabilities
+
+If the issue exists in the original GitFut project (and not in this fork's
+deployment changes), please report it to the upstream project instead:
+**[Younesfdj/gitfut security advisories](https://github.com/Younesfdj/gitfut/security/advisories/new)**
+or **ferradjiyounes69@gmail.com**, as described in the upstream `SECURITY.md`.
 
 ## Scope
 
 **In scope**
 
-- the **gitfut.com** web app and its API routes,
-- the source in this repository.
+- the **gitfut.blessingmwiti.com** web app and its API routes,
+- deployment-specific changes in this repository (config, Docker, nginx).
 
 **Out of scope**
 
@@ -30,6 +42,8 @@ You'll get an acknowledgement within **72 hours**, and I'll work to ship a fix a
 
 ## Supported versions
 
-GitFut is a continuously-deployed web app — only the currently deployed version (tracking `master`) is supported. There are no tagged releases to backport fixes to.
+GitFut is a continuously-deployed web app — only the currently deployed fork
+(tracking `master` of `blessingmwiti/gitfut`) is supported. There are no tagged
+releases to backport fixes to.
 
 Thanks for helping keep scouts safe. 🛡️

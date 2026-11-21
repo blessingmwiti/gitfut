@@ -2,12 +2,19 @@
 
 Thanks for wanting to help scout GitHub's finest ⚽ — bug fixes, new playstyles, sharper scoring, and docs are all welcome.
 
+> **This repository is a fork.** Upstream is
+> [Younesfdj/gitfut](https://github.com/Younesfdj/gitfut) — that is where the
+> original project is developed, and improvements that belong in the project
+> itself should go there as pull requests. This fork is a self-hosted deployment
+> maintained by [@blessingmwiti](https://github.com/blessingmwiti); open issues
+> here only for deployment-specific problems.
+
 ## Getting started
 
 GitFut is a [Next.js](https://nextjs.org) (App Router) app in TypeScript, styled with Tailwind. You'll need **Node 20+** and **npm**.
 
 ```bash
-git clone https://github.com/Younesfdj/gitfut.git
+git clone https://github.com/blessingmwiti/gitfut.git
 cd gitfut
 npm install
 npm run dev          # http://localhost:3000

@@ -10,13 +10,31 @@
 
 <br/><br/>
 
-<a href="https://gitfut.com/torvalds"><img src="https://gitfut.com/torvalds.png" width="240" alt="GitFut card"></a>
-<a href="https://gitfut.com/ThePrimeagen"><img src="https://gitfut.com/ThePrimeagen.png" width="240" alt="GitFut card"></a>
-<a href="https://gitfut.com/t3dotgg"><img src="https://gitfut.com/t3dotgg.png" width="240" alt="GitFut card"></a>
+<a href="https://gitfut.blessingmwiti.com/torvalds"><img src="https://gitfut.blessingmwiti.com/torvalds.png" width="240" alt="GitFut card"></a>
+<a href="https://gitfut.blessingmwiti.com/ThePrimeagen"><img src="https://gitfut.blessingmwiti.com/ThePrimeagen.png" width="240" alt="GitFut card"></a>
+<a href="https://gitfut.blessingmwiti.com/t3dotgg"><img src="https://gitfut.blessingmwiti.com/t3dotgg.png" width="240" alt="GitFut card"></a>
 
 <br/><br/>
 
 </div>
+
+<br/>
+
+> [!NOTE]
+> ### This is a self-hosted fork — not a replacement for the original
+>
+> GitFut was created by **[Younes Ferradji (@Younesfdj)](https://github.com/Younesfdj)** and its
+> contributors, and originally lived at **[gitfut.com](https://gitfut.com)**. All credit for the
+> original idea, design and implementation belongs to them.
+>
+> This repository is a fork maintained by **[Blessing Mwiti (@blessingmwiti)](https://github.com/blessingmwiti)**.
+> It is deployed at **[gitfut.blessingmwiti.com](https://gitfut.blessingmwiti.com)** because the
+> upstream domain is currently offline, so the tool stays usable. It runs the same
+> MIT-licensed code with deployment-specific configuration.
+>
+> **It is not a replacement for, affiliated with, or endorsed by the upstream project.**
+> For the canonical source, issues, and the project's own releases, go to
+> **[github.com/Younesfdj/gitfut](https://github.com/Younesfdj/gitfut)**.
 
 <br/>
 
@@ -25,13 +43,13 @@
 Your card lives at a URL. Drop it in your profile README, your portfolio, anywhere — and it **re-scouts itself** as your stats change.
 
 ```md
-[![My GitFut card](https://gitfut.com/YOUR_USERNAME.png)](https://gitfut.com/YOUR_USERNAME)
+[![My GitFut card](https://gitfut.blessingmwiti.com/YOUR_USERNAME.png)](https://gitfut.blessingmwiti.com/YOUR_USERNAME)
 ```
 
 | | |
 |---|---|
-| **`gitfut.com/<username>.png`** | your card, as a live image |
-| **`gitfut.com/<username>`** | the full scout report |
+| **`gitfut.blessingmwiti.com/<username>.png`** | your card, as a live image |
+| **`gitfut.blessingmwiti.com/<username>`** | the full scout report |
 | **`?country=XX`** | override the flag (e.g. `?country=DZ`) |
 
 <br/>
@@ -127,11 +145,49 @@ The whole cabinet is computed server-side at scout time and cached with the card
 
 <br/>
 
+## 🚢 &nbsp;Self-hosting this fork
+
+The app is a standard Next.js 16 standalone build and ships with a `Dockerfile` and `docker-compose.yml`.
+
+```bash
+cp .env.example .env
+# edit .env: set GITHUB_TOKEN (required for live scouting) and NEXT_PUBLIC_SITE_URL
+docker compose up -d --build
+```
+
+- The container binds to `127.0.0.1:3100` (host networking, so it can reach a
+  Redis instance bound to localhost). Put TLS in front with nginx/Caddy —
+  `deploy/nginx.conf` is the config this deployment uses.
+- `NEXT_PUBLIC_SITE_URL` is **build-time** (Next inlines `NEXT_PUBLIC_*`); rebuild
+  the image when the domain changes.
+- `GITHUB_TOKEN` needs only public read access. Without it the app still runs on
+  the baked sample profiles.
+- `REDIS_URL` is optional (cache + scout counter). `NEXT_PUBLIC_UMAMI_*` and
+  Sentry are optional and off unless configured.
+- See [`NOTICE`](NOTICE) for the fork/upstream attribution and [`SECURITY.md`](SECURITY.md)
+  for how to report a vulnerability in this deployment.
+
+<br/>
+
+## 🙏 &nbsp;Credits
+
+GitFut — the idea, design, scoring model and nearly all of this code — is the work of
+**[Younes Ferradji (@Younesfdj)](https://github.com/Younesfdj)** and the project's
+[contributors](https://github.com/Younesfdj/gitfut/graphs/contributors).
+Upstream: **[github.com/Younesfdj/gitfut](https://github.com/Younesfdj/gitfut)** · **[gitfut.com](https://gitfut.com)**.
+
+This fork is maintained at **[github.com/blessingmwiti/gitfut](https://github.com/blessingmwiti/gitfut)**
+and deployed at **[gitfut.blessingmwiti.com](https://gitfut.blessingmwiti.com)**.
+It is not a replacement for the upstream project. See [`LICENSE`](LICENSE) (MIT,
+original copyright retained) and [`NOTICE`](NOTICE).
+
+<br/>
+
 <div align="center">
 
 **Built with** Next.js · TypeScript · Tailwind · Redis
 
-**[gitfut.com](https://gitfut.com)** &nbsp;·&nbsp; scout someone today
+**Fork:** [gitfut.blessingmwiti.com](https://gitfut.blessingmwiti.com) &nbsp;·&nbsp; **Upstream:** [gitfut.com](https://gitfut.com)
 
 <img src="https://capsule-render.vercel.app/api?type=waving&height=90&color=0:39d353,100:006d32&section=footer" alt="" width="100%">
 

@@ -1,0 +1,31 @@
+GitFut — fork notice and attribution
+=====================================
+
+Original project
+----------------
+GitFut was created by Younes Ferradji (GitHub: @Younesfdj) and its contributors.
+
+  Source:  https://github.com/Younesfdj/gitfut
+  Website: https://gitfut.com
+  License: MIT (see LICENSE)
+
+This repository
+---------------
+This is a self-hosted fork maintained by Blessing Mwiti (GitHub: @blessingmwiti).
+
+  Source:   https://github.com/blessingmwiti/gitfut
+  Deployed: https://gitfut.blessingmwiti.com
+
+The fork exists so the tool remains available while the upstream domain is
+offline. It runs the same MIT-licensed code with deployment-specific
+configuration (domain, environment, hosting).
+
+This fork is NOT a replacement for the upstream project, and it is not
+affiliated with, endorsed by, or maintained by the original author. All credit
+for the original idea, design, and implementation belongs to the upstream
+project and its contributors. For the canonical source, issues, and releases,
+please use https://github.com/Younesfdj/gitfut.
+
+The original copyright notice is retained in LICENSE. Modifications made in this
+fork are Copyright (c) 2026 Blessing Mwiti and are released under the same MIT
+license.

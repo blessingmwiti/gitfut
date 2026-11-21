@@ -3,6 +3,8 @@
 import { Coffee } from "lucide-react";
 import { useHideOnScroll } from "@/hooks/useHideOnScroll";
 
+// Upstream's tip jar. This fork does not collect donations; the link is kept so
+// visitors can support the people who built the original GitFut.
 const BMC_URL = "https://buymeacoffee.com/gitfut";
 
 // Floating support pill — fixed bottom-right on home + scout report. Gold, not
@@ -25,8 +27,8 @@ export default function BuyMeACoffee() {
       href={BMC_URL}
       target="_blank"
       rel="noopener"
-      aria-label="Buy me a coffee"
-      title="Buy me a coffee"
+      aria-label="Support the upstream GitFut project"
+      title="Support the upstream GitFut project"
       className="animate-rise-soft fixed bottom-[calc(clamp(14px,3vh,22px)_+_54px)] right-[clamp(14px,3vw,22px)] z-40 flex h-[44px] items-center gap-[8px] rounded-full border border-line bg-panel/90 px-[16px] text-[12.5px] font-semibold leading-none text-ink-soft shadow-[0_8px_24px_-8px_rgba(1,4,9,.7)] backdrop-blur-[6px] transition-all duration-200 ease-out hover:-translate-y-[1px] hover:border-gold/50 hover:text-ink hover:shadow-[0_8px_24px_-8px_rgba(1,4,9,.7),0_0_14px_rgba(212,175,55,.22)] active:translate-y-0 active:scale-[.98] max-[560px]:w-[44px] max-[560px]:justify-center max-[560px]:gap-0 max-[560px]:px-0"
       style={{
         animationDelay: "1.2s",
@@ -44,7 +46,7 @@ export default function BuyMeACoffee() {
         aria-hidden
         className="shrink-0"
       />
-      <span className="max-[560px]:hidden">Support the Builders</span>
+      <span className="max-[560px]:hidden">Support Upstream</span>
     </a>
   );
 }

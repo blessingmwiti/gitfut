@@ -12,6 +12,11 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# NEXT_PUBLIC_* values are inlined by Next at build time, so the canonical site
+# URL must be present here — not just at runtime.
+ARG NEXT_PUBLIC_SITE_URL=https://gitfut.blessingmwiti.com
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 

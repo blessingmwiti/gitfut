@@ -1,0 +1,23 @@
+# Self-hosted GitFut fork.
+#
+# The container uses host networking so it can reach a Redis instance bound to
+# 127.0.0.1. It listens on 127.0.0.1:3100 — nginx terminates TLS in front of it
+# (see deploy/nginx.conf). Nothing is exposed publicly by the container itself.
+services:
+  gitfut:
+    build:
+      context: .
+      args:
+        # Build-time value for Next's inlined NEXT_PUBLIC_SITE_URL.
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://gitfut.blessingmwiti.com}
+    image: gitfut-fork:latest
+    container_name: gitfut
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      PORT: "3100"
+      HOSTNAME: 127.0.0.1

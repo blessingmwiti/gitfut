@@ -4,6 +4,7 @@ import { memo, type CSSProperties } from "react";
 import type { Card, StatKey } from "@/lib/scoring/types";
 import { languageLogoUrl } from "@/lib/github/languages";
 import { cardDisplayName } from "@/lib/text";
+import { SITE_MARK } from "@/lib/site";
 import { resolveCardTheme } from "./finishTheme";
 
 // Faithful port of the Python FUT generator's 540×820 layout. Positions are
@@ -314,7 +315,7 @@ function PlayerCard({ card }: { card: Card }) {
           style={{
             ...at(8, 94.8),
             fontFamily: FONT_BOLD,
-            fontSize: "4.1cqw",
+            fontSize: SITE_MARK.length > 14 ? "2.8cqw" : "4.1cqw",
             fontWeight: 700,
             letterSpacing: ".1em",
             lineHeight: 1,
@@ -323,7 +324,7 @@ function PlayerCard({ card }: { card: Card }) {
             opacity: 0.62,
           }}
         >
-          GITFUT.COM
+          {SITE_MARK}
         </div>
         <div
           style={{

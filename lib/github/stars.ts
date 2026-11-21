@@ -1,8 +1,12 @@
 import "server-only";
+import { FORK_REPO_SLUG, UPSTREAM_REPO_SLUG } from "@/lib/site";
 
-// The project's own GitHub repo — its star count powers the "Support the
-// project" link in the home footer.
-const REPO = "younesfdj/gitfut";
+// The star count belongs to the repo this deployment is built from (the fork);
+// the contributor credit stays pointed at the upstream repo because those are
+// the people who actually wrote the code. Both are best-effort and cached for
+// an hour (revalidate), so one cached call covers all visitors.
+const STARS_REPO = FORK_REPO_SLUG;
+const CONTRIBUTORS_REPO = UPSTREAM_REPO_SLUG;
 
 // Best-effort star count, cached for an hour (revalidate) so it's fast and never
 // rate-limited — one cached call covers all visitors instead of each browser
@@ -10,7 +14,7 @@ const REPO = "younesfdj/gitfut";
 export async function getRepoStars(): Promise<number | null> {
   try {
     const token = process.env.GITHUB_TOKEN;
-    const res = await fetch(`https://api.github.com/repos/${REPO}`, {
+    const res = await fetch(`https://api.github.com/repos/${STARS_REPO}`, {
       headers: {
         Accept: "application/vnd.github+json",
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
@@ -36,7 +40,7 @@ export async function getContributorCount(): Promise<number | null> {
   try {
     const token = process.env.GITHUB_TOKEN;
     const res = await fetch(
-      `https://api.github.com/repos/${REPO}/contributors?per_page=1&anon=0`,
+      `https://api.github.com/repos/${CONTRIBUTORS_REPO}/contributors?per_page=1&anon=0`,
       {
         headers: {
           Accept: "application/vnd.github+json",
